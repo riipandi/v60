@@ -14,7 +14,7 @@
 	"homepage": "https://github.com/riipandi/v60#readme",
 	"scripts": {
 		"build": "eleventy",
-		"serve": "eleventy --serve",
+		"serve": "eleventy --serve --port 3000",
 		"watch": "eleventy --watch",
 		"bench": "DEBUG=Eleventy:Benchmark* eleventy",
 		"clean": "rimraf _site _tmp"

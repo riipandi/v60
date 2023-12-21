@@ -1,6 +1,6 @@
 # v60 - Eleventy Vite Starter
 
-<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/ef99b4ea-199f-497b-84c1-48c34355da8a/deploy-status)](https://app.netlify.com/sites/eleventyplusvite/deploys) -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f2fd46fe-530a-4cc9-bd81-f197ff54b322/deploy-status)](https://app.netlify.com/sites/v60-demo/deploys)
 
 A clean and fast Eleventy Starter Project with Vite.
 
