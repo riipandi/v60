@@ -1,0 +1,51 @@
+{
+	"name": "v60-eleventy-vite-starter",
+	"version": "1.0.0",
+	"description": "A clean and simple Eleventy 2 Starter Kit with Vite",
+	"author": "Aris Ripandi <kataris@skiff.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://riipandi@github.com/riipandi/v60.git"
+	},
+	"bugs": {
+		"url": "https://github.com/riipandi/v60/issues"
+	},
+	"homepage": "https://github.com/riipandi/v60#readme",
+	"scripts": {
+		"build": "eleventy",
+		"serve": "eleventy --serve",
+		"watch": "eleventy --watch",
+		"bench": "DEBUG=Eleventy:Benchmark* eleventy",
+		"clean": "rimraf _site _tmp"
+	},
+	"devDependencies": {
+		"@11ty/eleventy-img": "^3.1.8",
+		"@11ty/eleventy-navigation": "^0.3.5",
+		"@11ty/eleventy-plugin-rss": "^1.2.0",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
+		"@11ty/eleventy-plugin-vite": "^4.0.0",
+		"@11ty/eleventy": "^2.0.1",
+		"autoprefixer": "^10.4.16",
+		"cssnano": "^6.0.2",
+		"cssremedy": "^0.1.0-beta.2",
+		"eslint-config-standard": "^17.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-n": "^16.5.0",
+		"eslint-plugin-promise": "^6.1.1",
+		"eslint": "^8.56.0",
+		"focus-visible": "^5.2.0",
+		"luxon": "^3.4.4",
+		"markdown-it-anchor": "^8.6.7",
+		"markdown-it": "^14.0.0",
+		"postcss-nesting": "^12.0.2",
+		"rimraf": "^5.0.5",
+		"rollup-plugin-critical": "^1.0.13",
+		"sass": "^1.69.5",
+		"vite": "^5.0.10"
+	},
+	"browserslist": [
+		"> 0.5%",
+		"not IE 11"
+	]
+}

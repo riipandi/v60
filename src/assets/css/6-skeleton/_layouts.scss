@@ -1,0 +1,21 @@
+// Main Site Layout
+
+body {
+	overflow-x: hidden;
+}
+
+.layout {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	min-height: 100vh;
+	position: relative;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	max-width: var(--container-max-width);
+	padding: 2rem 1rem; // fallback
+	padding: 2rem clamp(var(--spacing-medium), 3.75vw, var(--spacing-x-large));
+}
