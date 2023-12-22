@@ -38,9 +38,9 @@
         </script>
         <link rel="stylesheet" href="/assets/css/styles.css">
     </head>
-    <body class="bg-red-600">
+    <body class="bg-white dark:bg-gray-950 font-sans overflow-x">
         <a href="#main" class="skiplink">Skip to main content</a>
-        <div class="layout" role="document">
+        <div class="flex flex-col min-h-full min-h-screen relative" role="document">
             {% include "header.njk" %}
             <main id="main" class="main">
                 {{ content | safe }}

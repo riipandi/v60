@@ -1,7 +1,7 @@
-//import '/assets/css/main.scss'
+import Alpine from 'alpinejs'
+import 'focus-visible' // Focus Visible Polyfill
+import './modules/nav' // Internal Modules
 
-// Focus Visible Polyfill
-import "focus-visible";
-
-// Internal Modules
-import "./modules/nav";
+// Instantiate Alpine.js
+window.Alpine = Alpine
+Alpine.start()
