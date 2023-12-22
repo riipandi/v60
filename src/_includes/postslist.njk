@@ -1,20 +1,54 @@
-<ol reversed class="postlist">
+<ul reversed class="grid gap-16 max-w-4xl mx-auto">
     {% for post in postslist | reverse %}
         <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-            <a href="{{ post.url | url }}" class="postlist-link">
-                <h2>
+          <a href="{{ post.url | url }}">
+            <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+              <picture>
+                <source
+                  srcset="
+                    https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240
+                  "
+                  type="image/webp"
+                  sizes="(max-width: 800px) 100vw, 800px"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240"
+                  alt="data structures &amp; algorithms"
+                  sizes="(max-width: 800px) 100vw, 800px"
+                  loading="eager"
+                  decoding="sync"
+                  class="w-full rounded-md object-cover object-center bg-white"
+                  width="800"
+                  height="600"
+                />
+              </picture>
+              <div>
+				{% for tag in post.data.tags | filterTagList %}
+					{% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+					<a href="{{ tagUrl | url }}" class="text-blue-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
+				{% endfor %}
+                <h2
+                  class="text-3xl font-semibold leading-snug tracking-tight mt-1"
+                >
                     {% if post.data.title %}
                         {{ post.data.title }}
                     {% else %}
                         <code>{{ post.url }}</code>
                     {% endif %}
                 </h2>
-            </a>
-            <time class="postlist-date" datetime="{{ post.date | dateToFormat('yyyy-MM-dd') }}">{{ post.date | dateToFormat('dd LLL yyyy') }}</time>
-            {% for tag in post.data.tags | filterTagList %}
-                {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-                <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-            {% endfor %}
+                <div class="flex gap-2 mt-3">
+                  <span class="text-gray-400">John Doe</span>
+                  <span class="text-gray-400">• </span>
+                  <time
+                    class="text-gray-400"
+                    datetime="{{ post.date | dateToFormat('yyyy-MM-dd') }}"
+                  >
+                    {{ post.date | dateToFormat('dd LLL yyyy') }}
+                  </time>
+                </div>
+              </div>
+            </div>
+          </a>
         </li>
     {% endfor %}
-</ol>
+</ul>

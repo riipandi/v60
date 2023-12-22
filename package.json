@@ -13,8 +13,8 @@
 	},
 	"homepage": "https://github.com/riipandi/v60#readme",
 	"scripts": {
-		"build": "eleventy",
 		"watch": "eleventy --watch",
+		"build": "rimraf _site && eleventy",
 		"serve": "eleventy --serve --port 3000",
 		"bench": "DEBUG=Eleventy:Benchmark* eleventy",
 		"check": "biome check --apply .",

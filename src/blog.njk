@@ -1,0 +1,18 @@
+---
+layout: base
+permalink: /blog/
+eleventyNavigation:
+  key: Blog
+  order: 3
+---
+
+<div class="mt-16 text-center">
+    <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">Our Blog</h1>
+    <p class="text-lg mt-4 text-slate-600">
+        We write about building startups and thoughts going on our mind.
+    </p>
+</div>
+<main class="mt-16">
+    {% set postslist = collections.blog %}
+    {% include "postslist.njk" %}
+</main>

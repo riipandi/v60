@@ -75,3 +75,4 @@ This starter project would not have been possible without the many great sites a
 - Max Böck’s [Eleventastic](https://github.com/maxboeck/eleventastic)
 - Stephanie Eckles’s [11ty Netlify Jumpstart](https://github.com/5t3ph/11ty-netlify-jumpstart)
 - Miriam Suzanne [miriamsuzanne.com](https://www.miriamsuzanne.com)
+- W3T [web3templates.com](https://web3templates.com/)

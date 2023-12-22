@@ -11,11 +11,11 @@ eleventyExcludeFromCollections: true
     <author>
         <name>{{ meta.title }}</name>
     </author>
-    {% if collections.posts %}
-        <updated>{{ collections.posts | rssLastUpdatedDate }}</updated>
+    {% if collections.blog %}
+        <updated>{{ collections.blog | rssLastUpdatedDate }}</updated>
     {% endif %}
     <id>{{ meta.url }}/</id>
-    {%- for post in collections.posts | reverse -%}
+    {%- for post in collections.blog | reverse -%}
         {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.url) }}{% endset %}
         <entry>
             <title>{{ post.data.title }}</title>
