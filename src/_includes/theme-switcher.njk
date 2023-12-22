@@ -1,0 +1,51 @@
+<div class="inline-flex items-center">
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		fill="none"
+		viewBox="0 0 24 24"
+		stroke-width="1.5"
+		stroke="currentColor"
+		aria-hidden="true"
+		class="w-4 h-4 mr-2 text-gray-600 dark:text-gray-300">
+		<path
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25
+				12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z">
+		</path>
+	</svg>
+	<div
+		x-data="{
+			mode: '',
+			setColorMode: m => {
+				if (m === 'dark') {
+					document.documentElement.classList.add('dark')
+					localStorage.setItem('colorMode', 'dark')
+				} else {
+					document.documentElement.classList.remove('dark')
+					localStorage.setItem('colorMode', 'light')
+				}
+			}
+		}"
+		x-init="() => {
+			const m = localStorage.getItem('colorMode');
+			if (m !== 'dark' && m !== 'light') return;
+			mode = m;
+		}"
+	>
+	<button
+		@click="mode='light'; setColorMode('light');"
+		:class="{'font-semibold': mode === 'light', 'font-thin': mode !== 'light' }"
+		class="px-2 py-1 rounded border-white hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 text-sm"
+		>
+		light
+	</button>
+	<button
+		@click="mode = 'dark'; setColorMode('dark');"
+		:class="{'bg-gray-700 text-gray-200 border border-solid border-gray-600 font-semibold': mode === 'dark', 'font-thin': mode !== 'dark' }"
+		class="px-2 py-1 rounded hover:bg-white dark:hover:bg-gray-800 text-sm"
+		>
+		dark
+	</button>
+	</div>
+</div>

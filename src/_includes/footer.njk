@@ -1,14 +1,22 @@
-        <footer class="my-20">
-            <p class="text-center text-sm text-slate-500">
-                Copyright © 2023 Astroship. All rights reserved.
+<footer class="mt-20 mb-10 max-w-screen-xl mx-auto px-5 lg:px-10">
+    <div class="flex justify-between">
+        <div class="text-left">
+            <p class="text-sm text-gray-500">
+                &copy; {{ build.timestamp | dateToFormat('yyyy') }} Your Company. All rights reserved.
             </p>
             <!-- Can we ask you a favor 🙏 Please keep this backlink on your website if possible. or Purchase a commercial license
             from https://web3templates.com -->
-            <p class="text-center text-xs text-slate-500 mt-1">
-				{# <span>&copy; {{ build.timestamp | dateToFormat('yyyy') }} Aris Ripandi</span> #}
-                Made by
-                <a href="https://web3templates.com" target="_blank" rel="noopener" class="hover:underline">
-                    Web3Templates
+            <p
+                class="text-xs text-gray-500 mt-1">
+                by
+                <a href="https://github.com/riipandi" target="_blank" rel="noopener" class="hover:underline">
+                    Aris Ripandi.
+                </a>
+				Ported from <a href="https://web3templates.com/templates/astroship-starter-website-template-for-astro" target="_blank" rel="noopener" class="hover:underline">
+                    web3templates.com
                 </a>
             </p>
-        </footer>
+        </div>
+		{% include "theme-switcher.njk" %}
+    </div>
+</footer>

@@ -2,13 +2,13 @@
     class="astronav-items astronav-toggle hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0"
     role="navigation"
     tabindex="-1">
-    <ul class="flex flex-col lg:flex-row lg:gap-3">
+    <ul class="flex flex-col lg:flex-row lg:gap-5">
         {%- for item in collections.all | eleventyNavigation -%}
             {%- if item.url -%}
                 {%- set isCurrent = (item.url == page.url) -%}
                 {%- set isParent = item.url != '/' and item.url in page.url -%}
                 <li class="nav__item{% if isCurrent or isParent %} nav__item--active{% endif %}">
-                    <a class="flex lg:px-3 py-2 items-center text-gray-600 hover:text-gray-900" href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}" {% if isCurrent %} aria-current="page" {% endif %}>
+                    <a class="flex lg:px-3 py-2 items-center text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-900" href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}" {% if isCurrent %} aria-current="page" {% endif %}>
                         {{ item.title }}
                     </a>
                 </li>
@@ -16,7 +16,7 @@
         {%- endfor -%}
         <li class="relative">
             <menu class="astronav-dropdown group" aria-expanded="false">
-                <button class="flex items-center gap-1 w-full lg:w-auto lg:px-3 py-2 text-gray-600 hover:text-gray-900">
+                <button class="flex items-center gap-1 w-full lg:w-auto lg:px-3 py-2 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300">
                     <span>Features</span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -30,18 +30,18 @@
                 </button>
                 <div class="astronav-dropdown dropdown-toggle hidden" aria-expanded="false">
                     <div class="lg:absolute w-full lg:w-48 z-10 lg:left-0 origin-top-left">
-                        <div class="px-3 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col">
-                            <a href="/" class="py-1 text-gray-600 hover:text-gray-900">
-                                Action
+                        <div class="px-2 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col gap-0.5">
+                            <a href="/" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                                This is an action
                             </a>
-                            <a href="#" class="py-1 text-gray-600 hover:text-gray-900">
+                            <a href="#" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                                 Another action
                             </a>
-                            <a href="#" class="py-1 text-gray-600 hover:text-gray-900">
+                            <a href="#" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                                 Dropdown Submenu
                             </a>
-                            <a href="/404" class="py-1 text-gray-600 hover:text-gray-900">
-                                404 Page
+                            <a href="/404" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                                Example 404 Page
                             </a>
                         </div>
                     </div>

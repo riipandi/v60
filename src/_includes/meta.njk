@@ -13,9 +13,7 @@
     <meta property="og:url" content="{{ absolutePageUrl }}">
     <meta property="og:locale" content="{{ meta.locale }}">
     <meta name="twitter:card" content="{% if image -%}summary_large_image{% else %}summary{% endif %}">
-    {%- if image -%}
-        <meta property="og:image" content="{{ image | url | absoluteUrl(meta.url) }}">
-    {%- endif -%}
+    {%- if image -%}<meta property="og:image" content="{{ image | url | absoluteUrl(meta.url) }}">{%- endif -%}
 
     {# Favicon #}
     <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon/apple-touch-icon.png' | url }}">

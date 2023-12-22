@@ -2,7 +2,7 @@
 	"lang": "en",
 	"dir": "ltr",
 	"name": "v60 Eleventy Vite",
-	"short_name": "v60 Eleventy",
+	"short_name": "v-sixty",
 	"icons": [
 		{
 			"src": "/assets/images/favicon/android-chrome-192x192.png",

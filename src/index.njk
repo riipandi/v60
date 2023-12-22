@@ -25,12 +25,49 @@ layout: base
         </picture>
     </div>
     <div>
-        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-            Marketing website done with Astro
-        </h1>
-        <p class="text-lg mt-4 text-slate-600 max-w-xl">
-            Astroship is a starter template for startups, marketing websites &amp; landing pages.<wbr> Built with Astro.build and
-            TailwindCSS. You can quickly create any website with this starter.
+		<h1 x-data="{
+			startingAnimation: { opacity: 0, scale: 2 },
+			endingAnimation: { opacity: 1, scale: 1, stagger: 0.07, duration: 1, ease: 'expo.out' },
+			addCNDScript: true,
+			animateText() {
+				$el.classList.remove('invisible');
+				gsap.fromTo($el.children, this.startingAnimation, this.endingAnimation);
+			},
+			splitCharactersIntoSpans(element) {
+				text = element.innerHTML;
+				modifiedHTML = [];
+				for (var i = 0; i < text.length; i++) {
+					attributes = '';
+					if(text[i].trim()){ attributes = 'class=\'inline-block\''; }
+					modifiedHTML.push('<span ' + attributes + '>' + text[i] + '</span>');
+				}
+				element.innerHTML = modifiedHTML.join('');
+			},
+			addScriptToHead(url) {
+				script = document.createElement('script');
+				script.src = url;
+				document.head.appendChild(script);
+			}
+		}"
+		x-init="
+			splitCharactersIntoSpans($el);
+			if(addCNDScript){
+				addScriptToHead('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js');
+			}
+			gsapInterval = setInterval(function(){
+				if(typeof gsap !== 'undefined'){
+					animateText();
+					clearInterval(gsapInterval);
+				}
+			}, 5);
+		"
+		class="invisible text-5xl dark:text-white lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
+		>
+			Marketing website done with Eleventy
+		</h1>
+        <p class="text-lg mt-4 text-gray-600 dark:text-gray-400 max-w-xl">
+            v60 is a starter template for startups, marketing websites &amp; landing pages.<wbr> Built with Eleventy,
+			Vite, and TailwindCSS. You can quickly create any website with this starter.
         </p>
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
             <a
@@ -76,8 +113,8 @@ layout: base
     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
         Everything you need to start a website
     </h2>
-    <p class="text-lg mt-4 text-slate-600">
-        Astro comes batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations.
+    <p class="text-lg mt-4 text-gray-600">
+        This template comes with batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations.
     </p>
 </div>
 <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
@@ -92,7 +129,7 @@ layout: base
         </div>
         <div>
             <h3 class="font-semibold text-lg">Bring Your Own Framework</h3>
-            <p class="text-slate-500 mt-2 leading-relaxed">Build your site using React, Svelte, Vue, Preact, web components, or just
+            <p class="text-gray-500 mt-2 leading-relaxed">Build your site using React, Svelte, Vue, Preact, web components, or just
                 plain ol' HTML + JavaScript.</p>
         </div>
     </div>
@@ -107,7 +144,7 @@ layout: base
         </div>
         <div>
             <h3 class="font-semibold text-lg">100% Static HTML, No JS</h3>
-            <p class="text-slate-500 mt-2 leading-relaxed">Astro renders your entire page to static HTML, removing all JavaScript
+            <p class="text-gray-500 mt-2 leading-relaxed">Astro renders your entire page to static HTML, removing all JavaScript
                 from your final build by default.</p>
         </div>
     </div>
@@ -123,7 +160,7 @@ layout: base
         </div>
         <div>
             <h3 class="font-semibold text-lg">On-Demand Components</h3>
-            <p class="text-slate-500 mt-2 leading-relaxed">Need some JS? Astro can automatically hydrate interactive components when
+            <p class="text-gray-500 mt-2 leading-relaxed">Need some JS? Astro can automatically hydrate interactive components when
                 they become visible on the page.
             </p>
         </div>
@@ -142,7 +179,7 @@ layout: base
         </div>
         <div>
             <h3 class="font-semibold text-lg">Broad Integration</h3>
-            <p class="text-slate-500 mt-2 leading-relaxed">Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind,
+            <p class="text-gray-500 mt-2 leading-relaxed">Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind,
                 Markdown, MDX, and any other npm packages.</p>
         </div>
     </div>
@@ -158,7 +195,7 @@ layout: base
         </div>
         <div>
             <h3 class="font-semibold text-lg">SEO Enabled</h3>
-            <p class="text-slate-500 mt-2 leading-relaxed">Automatic sitemaps, RSS feeds, pagination and collections take the pain
+            <p class="text-gray-500 mt-2 leading-relaxed">Automatic sitemaps, RSS feeds, pagination and collections take the pain
                 out of SEO and syndication. It just works!</p>
         </div>
     </div>
@@ -173,13 +210,13 @@ layout: base
         </div>
         <div>
             <h3 class="font-semibold text-lg">Community</h3>
-            <p class="text-slate-500 mt-2 leading-relaxed">Astro is an open source project powered by hundreds of contributors
+            <p class="text-gray-500 mt-2 leading-relaxed">Astro is an open source project powered by hundreds of contributors
                 making thousands of individual contributions.</p>
         </div>
     </div>
 </div>
 <div class="mt-24">
-    <h2 class="text-center text-slate-500">Works with your technologies</h2>
+    <h2 class="text-center text-gray-500">Works with your technologies</h2>
     <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
         <svg viewbox="0 0 24 24" class="h-8 md:h-12" astro-icon="simple-icons:react">
             <path
@@ -255,11 +292,11 @@ layout: base
         </svg>
     </div>
 </div>
-<div class="bg-black p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
+<div class="bg-black dark:bg-gray-900/60 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
     <h2 class="text-white text-4xl md:text-6xl tracking-tight">
         Build faster websites.
     </h2>
-    <p class="text-slate-400 mt-4 text-lg md:text-xl">
+    <p class="text-gray-400 mt-4 text-lg md:text-xl">
         Pull content from anywhere and serve it fast with Astro's next-gen island architecture.
     </p>
     <div class="flex mt-5">

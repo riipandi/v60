@@ -1,54 +1,80 @@
 <ul reversed class="grid gap-16 max-w-4xl mx-auto">
     {% for post in postslist | reverse %}
         <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-          <a href="{{ post.url | url }}">
             <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-              <picture>
-                <source
-                  srcset="
-                    https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240
-                  "
-                  type="image/webp"
-                  sizes="(max-width: 800px) 100vw, 800px"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240"
-                  alt="data structures &amp; algorithms"
-                  sizes="(max-width: 800px) 100vw, 800px"
-                  loading="eager"
-                  decoding="sync"
-                  class="w-full rounded-md object-cover object-center bg-white"
-                  width="800"
-                  height="600"
-                />
-              </picture>
-              <div>
-				{% for tag in post.data.tags | filterTagList %}
-					{% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-					<a href="{{ tagUrl | url }}" class="text-blue-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
-				{% endfor %}
-                <h2
-                  class="text-3xl font-semibold leading-snug tracking-tight mt-1"
-                >
-                    {% if post.data.title %}
-                        {{ post.data.title }}
-                    {% else %}
-                        <code>{{ post.url }}</code>
-                    {% endif %}
-                </h2>
-                <div class="flex gap-2 mt-3">
-                  <span class="text-gray-400">John Doe</span>
-                  <span class="text-gray-400">• </span>
-                  <time
-                    class="text-gray-400"
-                    datetime="{{ post.date | dateToFormat('yyyy-MM-dd') }}"
-                  >
-                    {{ post.date | dateToFormat('dd LLL yyyy') }}
-                  </time>
+                <picture>
+                    <source
+                        srcset=" https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240 "
+                        type="image/webp"
+                        sizes="(max-width: 800px) 100vw, 800px"/>
+                    <img
+                        src="https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240"
+                        alt="data structures &amp; algorithms"
+                        sizes="(max-width: 800px) 100vw, 800px"
+                        loading="eager"
+                        decoding="sync"
+                        class="w-full rounded-md object-cover object-center bg-white"
+                        width="800"
+                        height="600"/>
+                </picture>
+                <div>
+                    {% for tag in post.data.tags | filterTagList %}
+                        {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+                        <a href="{{ tagUrl | url }}" class="text-blue-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
+                    {% endfor %}
+                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1">
+                        {% if post.data.title %}
+                            <a href="{{ post.url | url }}" class="hover:underline">{{ post.data.title }}</a>
+                        {% else %}
+                            <code>{{ post.url }}</code>
+                        {% endif %}
+                    </h2>
+                    <div class="flex gap-2 mt-3">
+                        <span class="text-gray-400">John Doe</span>
+                        <span class="text-gray-400">•
+                        </span>
+                        <time class="text-gray-400" datetime="{{ post.date | dateToFormat('yyyy-MM-dd') }}">
+                            {{ post.date | dateToFormat('dd LLL yyyy') }}
+                        </time>
+                    </div>
                 </div>
-              </div>
             </div>
-          </a>
         </li>
     {% endfor %}
 </ul>
+<div class="mt-14 flex items-center justify-center">
+    <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+        <button
+            disabled=""
+            class="relative inline-flex items-center gap-1 rounded-l-md border border-gray-300 bg-white px-3 py-2 pr-4 text-sm
+                font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40
+                dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                class="h-3 w-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5"></path>
+            </svg>
+            <span>Previous</span>
+        </button>
+        <button class="relative inline-flex items-center gap-1 rounded-r-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm
+                font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40
+                dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+            <span>Next</span>
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                class="h-3 w-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+            </svg>
+        </button>
+    </nav>
+</div>
