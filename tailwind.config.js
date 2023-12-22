@@ -1,4 +1,6 @@
+const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
+const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,11 +12,18 @@ module.exports = {
 				sans: ['DM Sans Variable', ...defaultTheme.fontFamily.sans],
 				mono: [...defaultTheme.fontFamily.mono]
 			},
-			colors: ({ colors }) => ({
+			colors: {
+				black: '#1B1C1E',
 				gray: colors.neutral,
 				primary: colors.blue
-			})
+			}
 		}
 	},
-	plugins: []
+	plugins: [
+		require('@tailwindcss/aspect-ratio'),
+		require('@tailwindcss/forms'),
+		require('@tailwindcss/typography'),
+		require('tailwindcss-animate'),
+		iconsPlugin({ collections: getIconCollections(['lucide']) })
+	]
 }

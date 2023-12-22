@@ -12,6 +12,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html,
+  body {
+    @apply scroll-smooth;
+  }
+  body * {
+    @apply transition-colors duration-150;
+  }
+}
+
 .skiplink {
 	@apply h-px overflow-hidden absolute w-px focus:rounded focus:text-gray-900 focus:h-auto focus:w-auto focus:no-underline focus:m-1 focus:px-4 focus:py-2;
 	clip: rect(1px, 1px, 1px, 1px);
