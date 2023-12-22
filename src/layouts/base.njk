@@ -4,37 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ meta.title }}</title>
-        <link
-            rel="preload"
-            href="/assets/fonts/dm-sans/dm-sans-v11-latin-regular-subset.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin=""> {% include "meta.njk" %}
-        <script>
-            // Font loading: Critical FOFT with preload @ref:
-            // https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-with-preload
-            (function () {
-                if ("fonts" in document) { // Optimization for Repeat Views
-                    if (sessionStorage.fontsLoadedCriticalFoftPreload) {
-                        document.documentElement.className += " fonts-loaded-2";
-                        return;
-                    }
-                    document
-                        .fonts
-                        .load("1em 'DM Sans Subset'")
-                        .then(function () {
-                            document.documentElement.className += " fonts-loaded-1";
-                            Promise.all(
-                                [document.fonts.load("400 1em 'DM Sans'"), document.fonts.load("700 1em 'DM Sans'"), document.fonts.load("italic 1em 'DM Sans'"), document.fonts.load("italic 700 1em 'DM Sans'")]
-                            ).then(function () {
-                                document.documentElement.className += " fonts-loaded-2";
-                                // Optimization for Repeat Views
-                                sessionStorage.fontsLoadedCriticalFoftPreload = true;
-                            });
-                        });
-                }
-            })();
-        </script>
+		{% include "meta.njk" %}
         <link rel="stylesheet" href="/assets/css/styles.css">
     </head>
     <body class="bg-white dark:bg-gray-950 font-sans overflow-x">

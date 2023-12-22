@@ -4,25 +4,14 @@ layout: base
 
 <main class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
     <div class="py-6 md:order-1 hidden md:block">
-        <picture>
-            <source
-                srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_2qyQJt.webp 200w,
-                    https://astroship.web3templates.com/_astro/hero.6fdd0dc6_ZxqcM7.webp 400w,
-                    https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z2mbqjy.webp 600w"
-                type="image/webp"
-                sizes="(max-width: 800px) 100vw, 620px">
-            <img
-                src="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_K6sM3.png"
-                srcset="https://astroship.web3templates.com/_astro/hero.6fdd0dc6_1CmDgd.png 200w,
-                    https://astroship.web3templates.com/_astro/hero.6fdd0dc6_Z1lCqgn.png 400w,
-                    https://astroship.web3templates.com/_astro/hero.6fdd0dc6_K6sM3.png 600w"
-                alt="Astronaut in the air"
-                sizes="(max-width: 800px) 100vw, 620px"
-                loading="eager"
-                width="520"
-                height="424"
-                decoding="async">
-        </picture>
+        <img
+            src="https://illustrations.popsy.co/sky/man-riding-a-rocket.svg"
+            class="dark:invert"
+            alt="Hero illustration"
+            loading="eager"
+            width="520"
+            height="424"
+            decoding="async">
     </div>
     <div>
 		<h1 x-data="{
@@ -63,15 +52,15 @@ layout: base
 		"
 		class="invisible text-5xl dark:text-white lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
 		>
-			Marketing website done with Eleventy
-		</h1>
+            Marketing website done with Eleventy
+        </h1>
         <p class="text-lg mt-4 text-gray-600 dark:text-gray-400 max-w-xl">
             v60 is a starter template for startups, marketing websites &amp; landing pages.<wbr> Built with Eleventy,
-			Vite, and TailwindCSS. You can quickly create any website with this starter.
+            			Vite, and TailwindCSS. You can quickly create any website with this starter.
         </p>
         <div class="mt-6 flex flex-col sm:flex-row gap-3">
             <a
-                href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
+                href="https://github.com/riipandi/v60/releases"
                 target="_blank"
                 rel="noopener"
                 class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-black text-white
@@ -85,7 +74,7 @@ layout: base
                 Download for Free
             </a>
             <a
-                href="https://github.com/surjithctly/astroship"
+                href="https://github.com/riipandi/v60"
                 rel="noopener"
                 target="_blank"
                 class="rounded text-center transition focus-visible:ring-2 ring-offset-2 ring-gray-200 px-5 py-2.5 bg-white border-2
@@ -110,11 +99,12 @@ layout: base
     </div>
 </main>
 <div class="mt-16 md:mt-0">
-    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight dark:text-gray-200">
         Everything you need to start a website
     </h2>
-    <p class="text-lg mt-4 text-gray-600">
-        This template comes with batteries included. It takes the best parts of state-of-the-art tools and adds its own innovations.
+    <p class="text-lg mt-4 text-gray-600 dark:text-gray-500">
+        This template comes with batteries included. It takes the best parts of state-of-the-art tools and adds its own
+        innovations.
     </p>
 </div>
 <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
@@ -210,61 +200,52 @@ layout: base
         </div>
         <div>
             <h3 class="font-semibold text-lg">Community</h3>
-            <p class="text-gray-500 mt-2 leading-relaxed">Astro is an open source project powered by hundreds of contributors
-                making thousands of individual contributions.</p>
+            <p class="text-gray-500 mt-2 leading-relaxed">
+                Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.
+            </p>
         </div>
     </div>
 </div>
 <div class="mt-24">
-    <h2 class="text-center text-gray-500">Works with your technologies</h2>
-    <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
-        <svg viewbox="0 0 24 24" class="h-8 md:h-12" astro-icon="simple-icons:react">
+    <h2 class="text-center text-gray-700 text-2xl font-semibold dark:text-gray-400">Built with current technologies</h2>
+    <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap bg-gray-100 dark:bg-gray-900/60 mx-auto max-w-3xl rounded-lg py-6">
+        <svg class="h-8 md:h-12" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M37.77 0L34.5567 35.9959L20.1134 40L5.70979 36.0015L2.5 0H37.77Z" fill="black"/>
+            <path d="M20.135 36.9394L31.8059 33.7038L34.5519 2.94373H20.135V36.9394Z" fill="black"/>
             <path
-                fill="currentColor"
-                d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0
-                    0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41
-                    0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704
-                    3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0
-                    .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24
-                    12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.092-.278zm-.005 1.09v.006c.225 0
-                    .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44a23.476 23.476 0 0 0-3.107-.534A23.892 23.892 0 0 0
-                    12.769 4.7c1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442a22.73
-                    22.73 0 0 0-3.113.538 15.02 15.02 0 0 1-.254-1.42c-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882
-                    3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12
-                    8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013
-                    1.95-.38.66-.773 1.288-1.18 1.87a25.64 25.64 0 0 1-4.412.005 26.64 26.64 0 0
-                    1-1.183-1.86c-.372-.64-.71-1.29-1.018-1.946a25.17 25.17 0 0 1 1.013-1.954c.38-.66.773-1.286 1.18-1.868A25.245 25.245 0 0
-                    1 12 8.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15
-                    1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933a25.952 25.952 0 0
-                    0-1.345-2.32zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857
-                    2.475-.42.18-.88.342-1.355.493a23.966 23.966 0 0 0-1.1-2.98c.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957
-                    1.1 2.98a23.142 23.142 0 0 0-1.086 2.964c-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742
-                    2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39a25.819 25.819 0
-                    0 0 1.341-2.338zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143a22.005 22.005 0 0
-                    1-2.006-.386c.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714
-                    3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3
-                    3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295a1.185
-                    1.185 0 0 1-.553-.132c-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0
-                    .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"></path>
-        </svg>
-        <svg viewbox="0 0 24 24" class="h-8 md:h-12" astro-icon="simple-icons:svelte">
+                d="M13.8886 11.7746H20.135V7.35913H9.06316L9.16886 8.54373L10.2541 20.7115H20.135V16.2961H14.2923L13.8886 11.7746Z"
+                fill="white"/>
             <path
-                fill="currentColor"
-                d="M10.354 21.125a4.44 4.44 0 0 1-4.765-1.767 4.109 4.109 0 0 1-.703-3.107 3.898 3.898 0 0 1
-                    .134-.522l.105-.321.287.21a7.21 7.21 0 0 0 2.186 1.092l.208.063-.02.208a1.253 1.253 0 0 0 .226.83 1.337 1.337 0 0 0
-                    1.435.533 1.231 1.231 0 0 0 .343-.15l5.59-3.562a1.164 1.164 0 0 0 .524-.778 1.242 1.242 0 0 0-.211-.937 1.338 1.338 0 0
-                    0-1.435-.533 1.23 1.23 0 0 0-.343.15l-2.133 1.36a4.078 4.078 0 0 1-1.135.499 4.44 4.44 0 0 1-4.765-1.766 4.108 4.108 0 0
-                    1-.702-3.108 3.855 3.855 0 0 1 1.742-2.582l5.589-3.563a4.072 4.072 0 0 1 1.135-.499 4.44 4.44 0 0 1 4.765 1.767 4.109
-                    4.109 0 0 1 .703 3.107 3.943 3.943 0 0 1-.134.522l-.105.321-.286-.21a7.204 7.204 0 0
-                    0-2.187-1.093l-.208-.063.02-.207a1.255 1.255 0 0 0-.226-.831 1.337 1.337 0 0 0-1.435-.532 1.231 1.231 0 0 0-.343.15L8.62
-                    9.368a1.162 1.162 0 0 0-.524.778 1.24 1.24 0 0 0 .211.937 1.338 1.338 0 0 0 1.435.533 1.235 1.235 0 0 0
-                    .344-.151l2.132-1.36a4.067 4.067 0 0 1 1.135-.498 4.44 4.44 0 0 1 4.765 1.766 4.108 4.108 0 0 1 .702 3.108 3.857 3.857 0
-                    0 1-1.742 2.583l-5.589 3.562a4.072 4.072 0 0 1-1.135.499m10.358-17.95C18.484-.015 14.082-.96 10.9 1.068L5.31 4.63a6.412
-                    6.412 0 0 0-2.896 4.295 6.753 6.753 0 0 0 .666 4.336 6.43 6.43 0 0 0-.96 2.396 6.833 6.833 0 0 0 1.168 5.167c2.229 3.19
-                    6.63 4.135 9.812 2.108l5.59-3.562a6.41 6.41 0 0 0 2.896-4.295 6.756 6.756 0 0 0-.665-4.336 6.429 6.429 0 0 0 .958-2.396
-                    6.831 6.831 0 0 0-1.167-5.168z"></path>
+                d="M14.8837 22.9193H10.4514L11.07 29.8522L20.1146 32.363L20.135 32.3574V27.7635L20.1156 27.7686L15.1981 26.4409L14.8837
+                    22.9193Z"
+                fill="white"/>
+            <path
+                d="M20.1198 20.7115H25.5569L25.0443 26.438L20.1198 27.7673V32.3609L29.1716 29.8521L29.238 29.1063L30.2756 17.4819L30.3834
+                    16.2961H20.1198V20.7115Z"
+                fill="#A0A0A0"/>
+            <path
+                d="M20.1198 11.7638V11.7746H30.7851L30.8736 10.7821L31.0749 8.54373L31.1805 7.35913H20.1198V11.7638Z"
+                fill="#A0A0A0"/>
         </svg>
-        <svg viewbox="0 0 24 24" class="h-8 md:h-14" astro-icon="simple-icons:tailwindcss">
+        <svg class="h-8 md:h-12" viewbox="0 0 15694 15694" xmlns="http://www.w3.org/2000/svg"><rect fill="#222" height="100%" width="100%"/><path
+                d="m5622 11381c-90 0-135-120-135-361v-5951c0-115-23-169-70-162l-431 108c-79 7-118-72-118-237v-517c0-143 43-224
+                    129-242l1422-366c11-3 27-5 48-5 79 0 118 84 118 253v7120c0 241-47 361-140 361zm3683 11c-144
+                    0-268-10-374-30s-216-65-331-135-209-166-283-288-134-293-180-512-70-479-70-781v-2762c0-72-20-108-59-108h-334c-90
+                    0-135-86-135-258v-291c0-176 45-264 135-264h334c39 0 59-48 59-145l97-2095c11-190 57-285 140-285h539c90 0 135 95 135
+                    285v2095c0 97 21 145 65 145h687c90 0 135 88 135 264v291c0 172-45 258-135 258h-689c-25 0-42 6-51 19-9 12-13 42-13
+                    89v2779c0 208 13 382 40 520s66 240 118 304 104 108 156 129c52 22 116 32 191 32h382c97 0 145 67 145 199v323c0 147-52
+                    221-156 221zm2067 646c82 0 154-67 215-202s92-326 92-574c0-58-36-257-108-598l-1056-4389c-7-50-11-90-11-119 0-129 27-194
+                    81-194h652c50 0 91 17 124 51s58 103 75 207l700 3705c14 43 23 65 27 65 14 0 22-20 22-59l549-3695c14-108 37-180
+                    67-218s69-57 116-57h452c61 0 92 70 92 210 0 32-4 74-11 124l-959 4993c-75 413-158 729-248 948s-190 368-302 447a776 776 0 0
+                    1 -442 124h-54c-291 0-488-77-592-232-29-32-43-115-43-248 0-266 43-399 129-399 7 0 72 18 194 54 124 38 203 56 239
+                    56zm-8460-647c-90 0-135-120-135-361v-5951c0-115-23-169-70-162l-431 108c-79 7-118-72-118-237v-517c0-143 43-224
+                    129-242l1423-367c11-3 27-5 48-5 79 0 118 84 118 253v7120c0 241-47 361-140 361z"
+                fill="#fff"
+                stroke="#fff"
+                stroke-miterlimit="10"
+                stroke-width="280"/>
+        </svg>
+        <svg viewbox="0 0 24 24" class="h-8 md:h-14 dark:text-gray-200" astro-icon="simple-icons:tailwindcss">
             <path
                 fill="currentColor"
                 d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001
@@ -272,27 +253,18 @@ layout: base
                     7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0
                     5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"></path>
         </svg>
-        <svg viewbox="0 0 24 24" class="h-8 md:h-16" astro-icon="simple-icons:alpinedotjs">
+        <svg viewbox="0 0 24 24" class="h-8 md:h-16 dark:text-gray-200" astro-icon="simple-icons:alpinedotjs">
             <path
                 fill="currentColor"
                 d="m24 12-5.72 5.746-5.724-5.741 5.724-5.75L24 12zM5.72 6.254 0 12l5.72 5.746h11.44L5.72 6.254z"></path>
         </svg>
-        <svg viewbox="0 0 24 24" class="h-8 md:h-12" astro-icon="simple-icons:vercel">
+        <svg viewbox="0 0 24 24" class="h-8 md:h-12 dark:text-gray-200" astro-icon="simple-icons:vercel">
             <path fill="currentColor" d="M24 22.525H0l12-21.05 12 21.05z"></path>
-        </svg>
-        <svg viewbox="0 0 24 24" class="h-8 md:h-12" astro-icon="simple-icons:astro">
-            <path
-                fill="currentColor"
-                d="M16.074 16.86c-.72.616-2.157 1.035-3.812 1.035-2.032 0-3.735-.632-4.187-1.483-.161.488-.198 1.046-.198 1.402 0 0-.106
-                    1.75 1.111 2.968 0-.632.513-1.145 1.145-1.145 1.083 0 1.082.945 1.081 1.712v.069c0 1.164.711 2.161 1.723 2.582a2.347
-                    2.347 0 0 1-.236-1.029c0-1.11.652-1.523 1.41-2.003.602-.383 1.272-.807 1.733-1.66a3.129 3.129 0 0 0 .378-1.494 3.14 3.14
-                    0 0 0-.148-.954zM15.551.6c.196.244.296.572.496 1.229l4.368 14.347a18.18 18.18 0 0 0-5.222-1.768L12.35 4.8a.37.37 0 0
-                    0-.71.002l-2.81 9.603a18.175 18.175 0 0 0-5.245 1.771L7.974 1.827c.2-.656.3-.984.497-1.227a1.613 1.613 0 0 1
-                    .654-.484C9.415 0 9.757 0 10.443 0h3.135c.686 0 1.03 0 1.32.117A1.614 1.614 0 0 1 15.55.6z"></path>
         </svg>
     </div>
 </div>
-<div class="bg-black dark:bg-gray-900/60 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center text-center">
+<div class="bg-black dark:bg-gray-900/60 p-8 md:px-20 md:py-20 mt-20 mx-auto max-w-5xl rounded-lg flex flex-col items-center
+        text-center">
     <h2 class="text-white text-4xl md:text-6xl tracking-tight">
         Build faster websites.
     </h2>
