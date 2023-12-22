@@ -8,7 +8,7 @@
                 {%- set isCurrent = (item.url == page.url) -%}
                 {%- set isParent = item.url != '/' and item.url in page.url -%}
                 <li class="nav__item{% if isCurrent or isParent %} nav__item--active{% endif %}">
-                    <a class="flex lg:px-3 py-2 items-center text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-900" href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}" {% if isCurrent %} aria-current="page" {% endif %}>
+                    <a class="flex lg:px-3 py-2 items-center text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 hover:text-gray-900 {% if isCurrent %}underline{% else %}no-underline{% endif %}" href="{% if isCurrent %}#main{% else %}{{ item.url | url }}{% endif %}" {% if isCurrent %} aria-current="page" {% endif %}>
                         {{ item.title }}
                     </a>
                 </li>
@@ -30,17 +30,17 @@
                 </button>
                 <div class="astronav-dropdown dropdown-toggle hidden" aria-expanded="false">
                     <div class="lg:absolute w-full lg:w-48 z-10 lg:left-0 origin-top-left">
-                        <div class="px-2 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col gap-0.5">
-                            <a href="/" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                        <div class="px-2 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col gap-0.5 text-sm">
+                            <a href="/" class="py-1.5 px-2.5 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                                 This is an action
                             </a>
-                            <a href="#" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                            <a href="#" class="py-1.5 px-2.5 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                                 Another action
                             </a>
-                            <a href="#" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                            <a href="#" class="py-1.5 px-2.5 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                                 Dropdown Submenu
                             </a>
-                            <a href="/404" class="py-1 px-2 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
+                            <a href="/404" class="py-1.5 px-2.5 rounded text-gray-600 hover:text-gray-900 hover:bg-gray-100">
                                 Example 404 Page
                             </a>
                         </div>

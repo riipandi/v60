@@ -20,7 +20,7 @@
                 <div>
                     {% for tag in post.data.tags | filterTagList %}
                         {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-                        <a href="{{ tagUrl | url }}" class="text-blue-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
+                        <a href="{{ tagUrl | url }}" class="text-primary-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
                     {% endfor %}
                     <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1">
                         {% if post.data.title %}
