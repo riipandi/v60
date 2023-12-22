@@ -12,7 +12,7 @@ const filters = require('./utils/filters.js')
 const transforms = require('./utils/transforms.js')
 const shortcodes = require('./utils/shortcodes.js')
 
-const { resolve } = require('path')
+// const { resolve } = require('path')
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.setServerPassthroughCopyBehavior('copy')
@@ -70,10 +70,7 @@ module.exports = (eleventyConfig) => {
 										height: 1080,
 										width: 1920
 									}
-								],
-								penthouse: {
-									forceInclude: ['.fonts-loaded-1 body', '.fonts-loaded-2 body']
-								}
+								]
 							}
 						})
 					]

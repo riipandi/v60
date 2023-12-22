@@ -25,76 +25,46 @@ layout: base
         </div>
     </div>
 </div>
+
 <article class="mx-auto prose prose-lg mt-6 max-w-3xl">
     {{ content | safe }}
 </article>
-{# <div class="text-center mt-8">
-    <a href="/blog" class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition">&larr; Back to Blog</a>
-</div> #}
+
 <div class="mb-7 mt-8 flex justify-center">
-    <a href="/blog" class="bg-brand-secondary/20 rounded-full px-5 py-2 text-sm text-primary-600 dark:text-primary-500">&larr;
+    <a href="/blog" class="bg-primary-100/80 rounded-full px-5 py-2 text-sm text-primary-600 dark:text-primary-500">&larr;
         View all posts
 	</a>
 </div>
-<div class="mx-auto mt-3 max-w-3xl">
+
+<div class="mx-auto mt-8 max-w-3xl">
     <div class="rounded-2xl bg-gray-50 px-8 py-8 text-gray-500 dark:bg-gray-900 dark:text-gray-400">
         <div class="flex flex-wrap items-start sm:flex-nowrap sm:space-x-6">
             <div class="relative mt-1 h-24 w-24 flex-shrink-0 ">
                 <a href="/author/erika-oliver">
                     <img
-                        alt="Erika Oliver"
+                        alt="John Doe"
                         loading="lazy"
                         decoding="async"
                         data-nimg="fill"
                         class="rounded-full object-cover"
                         sizes="96px"
-                        srcset="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=16&amp;q=75
-                            16w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=32&amp;q=75
-                            32w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=48&amp;q=75
-                            48w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=64&amp;q=75
-                            64w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=96&amp;q=75
-                            96w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=128&amp;q=75
-                            128w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=256&amp;q=75
-                            256w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=384&amp;q=75
-                            384w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=640&amp;q=75
-                            640w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=750&amp;q=75
-                            750w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=828&amp;q=75
-                            828w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=1080&amp;q=75
-                            1080w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=1200&amp;q=75
-                            1200w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=1920&amp;q=75
-                            1920w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=2048&amp;q=75
-                            2048w,
-                            https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=3840&amp;q=75
-                            3840w"
-                        src="https://stablo.web3templates.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fcijrdavx%2Fproduction%2F4e20f048a69ac41ab7a6b5f1687f0547379b7469-3648x5472.jpg%3Fw%3D2000%26auto%3Dformat&amp;w=3840&amp;q=75"
+                        src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?q=80&w=3280&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;"></a>
                 </div>
                 <div>
                     <div class="mb-3">
-                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-300">About Erika Oliver</h3>
+                        <h3 class="text-lg font-medium text-gray-800 dark:text-gray-300">About John Doe</h3>
                     </div>
                     <div>
-                        <p>Erika Oliver is a successful entrepreuner. She is the founder of Acme Inc, a bootstrapped business that builds
-                            affordable SaaS tools for local news, indie publishers, and other small businesses.</p>
+                        <p>
+							John Doe is a successful entrepreuner. He is the founder of Acme Inc, a bootstrapped business
+							that builds affordable SaaS tools for local news, indie publishers, and other small businesses.
+						</p>
                     </div>
                     <div class="mt-3">
-                        <a
-                            class="bg-brand-secondary/20 rounded-full py-2 text-sm text-primary-600 dark:text-primary-500 "
-                            href="/author/erika-oliver">View Profile</a>
+                        <a href="/author/john-doe" class="bg-primary-100/80 rounded-lg py-2 px-4 text-xs text-primary-600 dark:text-primary-500">
+							View Profile
+						</a>
                     </div>
                 </div>
             </div>

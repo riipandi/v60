@@ -10,19 +10,19 @@
 	}
 	function addListeners() {
 		// Clean up existing listeners
-		const oldMenuButton = document.getElementById('astronav-menu')
+		const oldMenuButton = document.getElementById('v60nav-menu')
 		if (oldMenuButton) {
 			cloneAndReplace(oldMenuButton)
 		}
-		const oldDropdownMenus = document.querySelectorAll('.astronav-dropdown')
+		const oldDropdownMenus = document.querySelectorAll('.v60nav-dropdown')
 		oldDropdownMenus.forEach((menu) => {
 			cloneAndReplace(menu)
 		})
 		// Mobile nav toggle
-		const menuButton = document.getElementById('astronav-menu')
+		const menuButton = document.getElementById('v60nav-menu')
 		menuButton && menuButton.addEventListener('click', toggleMobileNav)
 		// Dropdown menus
-		const dropdownMenus = document.querySelectorAll('.astronav-dropdown')
+		const dropdownMenus = document.querySelectorAll('.v60nav-dropdown')
 		dropdownMenus.forEach((menu) => {
 			const button = menu.querySelector('button')
 			button &&
@@ -30,9 +30,7 @@
 					toggleDropdownMenu(event, menu, dropdownMenus)
 				)
 			// Handle Submenu Dropdowns
-			const dropDownSubmenus = menu.querySelectorAll(
-				'.astronav-dropdown-submenu'
-			)
+			const dropDownSubmenus = menu.querySelectorAll('.v60nav-dropdown-submenu')
 			dropDownSubmenus.forEach((submenu) => {
 				const submenuButton = submenu.querySelector('button')
 				submenuButton &&
@@ -49,7 +47,7 @@
 		}
 	}
 	function toggleMobileNav() {
-		;[...document.querySelectorAll('.astronav-toggle')].forEach((el) => {
+		;[...document.querySelectorAll('.v60nav-toggle')].forEach((el) => {
 			el.classList.toggle('hidden')
 		})
 	}
@@ -66,8 +64,8 @@
 		toggleMenu(submenu)
 		// Close sibling submenus at the same nesting level
 		const siblingSubmenus = submenu
-			.closest('.astronav-dropdown')
-			.querySelectorAll('.astronav-dropdown-submenu')
+			.closest('.v60nav-dropdown')
+			.querySelectorAll('.v60nav-dropdown-submenu')
 		Array.from(siblingSubmenus)
 			.filter((el) => el !== submenu && !submenu.contains(el))
 			.forEach(closeMenu)
@@ -75,11 +73,11 @@
 	function closeAllDropdowns(event) {
 		const dropdownMenus = document.querySelectorAll('.dropdown-toggle')
 		const dropdownParent = document.querySelectorAll(
-			'.astronav-dropdown, .astronav-dropdown-submenu'
+			'.v60nav-dropdown, .v60nav-dropdown-submenu'
 		)
 		const isButtonInsideDropdown = [
 			...document.querySelectorAll(
-				'.astronav-dropdown button, .astronav-dropdown-submenu button, #astronav-menu'
+				'.v60nav-dropdown button, .v60nav-dropdown-submenu button, #v60nav-menu'
 			)
 		].some((button) => button.contains(event.target))
 		if (!isButtonInsideDropdown) {
@@ -124,10 +122,10 @@
 		})
 	}
 	function handleCloseOnClick() {
-		const navMenuItems = document.querySelector('.astronav-items')
-		const navToggle = document.getElementById('astronav-menu')
+		const navMenuItems = document.querySelector('.v60nav-items')
+		const navToggle = document.getElementById('v60nav-menu')
 		const navLink = navMenuItems && navMenuItems.querySelectorAll('a')
-		const MenuIcons = navToggle.querySelectorAll('.astronav-toggle')
+		const MenuIcons = navToggle.querySelectorAll('.v60nav-toggle')
 		navLink &&
 			navLink.forEach((item) => {
 				item.addEventListener('click', () => {
