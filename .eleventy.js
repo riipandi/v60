@@ -6,13 +6,9 @@ const EleventyPluginRss = require('@11ty/eleventy-plugin-rss')
 const EleventyPluginSyntaxhighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite')
 
-const rollupPluginCritical = require('rollup-plugin-critical').default
-
 const filters = require('./utils/filters.js')
 const transforms = require('./utils/transforms.js')
 const shortcodes = require('./utils/shortcodes.js')
-
-// const { resolve } = require('path')
 
 module.exports = (eleventyConfig) => {
 	eleventyConfig.setServerPassthroughCopyBehavior('copy')
@@ -46,34 +42,7 @@ module.exports = (eleventyConfig) => {
 						chunkFileNames: 'assets/js/[name].[hash].js',
 						entryFileNames: 'assets/js/[name].[hash].js'
 					},
-					plugins: [
-						rollupPluginCritical({
-							criticalUrl: './_site/',
-							criticalBase: './_site/',
-							criticalPages: [
-								{ uri: 'index.html', template: 'index' },
-								{ uri: 'blog/index.html', template: 'blog/index' },
-								{ uri: '404.html', template: '404' }
-							],
-							criticalConfig: {
-								inline: true,
-								dimensions: [
-									{
-										height: 900,
-										width: 375
-									},
-									{
-										height: 720,
-										width: 1280
-									},
-									{
-										height: 1080,
-										width: 1920
-									}
-								]
-							}
-						})
-					]
+					plugins: []
 				}
 			}
 		}
