@@ -1,0 +1,52 @@
+##
+# fly.toml app configuration file generated on 2023-12-23T23:05:32+07:00
+# See https://fly.io/docs/reference/configuration/ for information about
+# how to use this file.
+##
+
+app = "v60-eleventy"
+primary_region = "sjc"
+kill_signal = "SIGINT"
+kill_timeout = 5
+swap_size_mb = 512
+console_command = "/bin/sh"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[build.args]
+  NODE_VERSION = "20"
+
+[deploy]
+  strategy = "immediate"
+
+[env]
+  SERVER_HOST = "0.0.0.0"
+  SERVER_HEALTH = "true"
+
+[http_service]
+  internal_port = 80
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
+  [http_service.tls_options]
+    alpn = ["h2", "http/1.1"]
+    versions = ["TLSv1.2", "TLSv1.3"]
+    default_self_signed = false
+
+[[http_service.checks]]
+  grace_period = "10s"
+  interval = "30s"
+  method = "GET"
+  timeout = "5s"
+  path = "/health"
+  protocol = "http"
+  tls_skip_verify = true
