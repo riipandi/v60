@@ -9,7 +9,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['DM Sans Variable', ...defaultTheme.fontFamily.sans],
+				sans: ['Inter Variable', ...defaultTheme.fontFamily.sans],
 				mono: [...defaultTheme.fontFamily.mono]
 			},
 			colors: {
@@ -21,7 +21,9 @@ module.exports = {
 	},
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
-		require('@tailwindcss/forms'),
+		require('@tailwindcss/forms')({
+			strategy: 'class' // only generate classes
+		}),
 		require('@tailwindcss/typography'),
 		require('tailwindcss-animate'),
 		iconsPlugin({ collections: getIconCollections(['lucide']) })
