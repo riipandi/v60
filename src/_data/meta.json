@@ -1,8 +1,8 @@
 {
-	"title": "v60 Eleventy Vite",
-	"description": "An Eleventy 2 Starter Project with Vite",
-	"url": "https://v60-demo.netlify.app",
-	"lang": "en",
-	"locale": "en_us",
-	"author": "Aris Ripandi"
+    "title": "v60 Eleventy Vite",
+    "description": "An Eleventy 2 Starter Project with Vite",
+    "url": "https://v60-demo.netlify.app",
+    "lang": "en",
+    "locale": "en_us",
+    "author": "Aris Ripandi"
 }
