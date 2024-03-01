@@ -1,8 +1,8 @@
 {
-	"name": "v60-eleventy-vite-starter",
+	"name": "v60-eleventy",
 	"version": "1.0.0",
 	"description": "A clean and simple Eleventy 2 Starter Kit with Vite",
-	"author": "Aris Ripandi <kataris@skiff.com>",
+	"author": "Aris Ripandi <aris@duck.com>",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
