@@ -14,24 +14,7 @@
 @layer base {
   html,
   body {
-    @apply scroll-smooth;
-  }
-  body * {
-    @apply transition-colors duration-150;
-  }
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html,
-  body {
-    @apply scroll-smooth;
-  }
-  body * {
-    @apply transition-colors duration-150;
+    @apply scroll-smooth transition-colors duration-300;
   }
 }
 

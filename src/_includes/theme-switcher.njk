@@ -1,24 +1,23 @@
-<div class="inline-flex items-center">
-	<span class="i-lucide-sun-moon w-5 h-5 mr-2 text-gray-500 dark:text-gray-300 mr-2"></span>
-	<div
-		x-data="{
-			mode: '',
-			setColorMode: m => {
-				if (m === 'dark') {
-					document.documentElement.classList.add('dark')
-					localStorage.setItem('colorMode', 'dark')
-				} else {
-					document.documentElement.classList.remove('dark')
-					localStorage.setItem('colorMode', 'light')
-				}
+<div class="inline-flex items-center" x-data="{
+		mode: '',
+		setColorMode: m => {
+			if (m === 'dark') {
+				document.documentElement.classList.add('dark')
+				localStorage.setItem('colorMode', 'dark')
+			} else {
+				document.documentElement.classList.remove('dark')
+				localStorage.setItem('colorMode', 'light')
 			}
-		}"
-		x-init="() => {
-			const m = localStorage.getItem('colorMode');
-			if (m !== 'dark' && m !== 'light') return;
-			mode = m;
-		}"
-	>
+		}
+	}"
+	x-init="() => {
+		const m = localStorage.getItem('colorMode');
+		if (m !== 'dark' && m !== 'light') return;
+		mode = m;
+	}">
+	<span :class="{'hidden': mode === 'dark'}" class="i-lucide-sun w-5 h-5 mr-2 text-gray-500 dark:text-gray-300 mr-2"></span>
+	<span :class="{'hidden': mode === 'light' }" class="i-lucide-moon w-5 h-5 mr-2 text-gray-500 dark:text-gray-300 mr-2"></span>
+	<div>
 	<button
 		@click="mode='light'; setColorMode('light');"
 		:class="{'font-semibold': mode === 'light', 'font-thin': mode !== 'light' }"
