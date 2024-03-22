@@ -11,12 +11,14 @@ WORKDIR /app
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
+ENV ELEVENTY_PRODUCTION=true
 
 RUN apk update && apk add --no-cache libc6-compat
 RUN corepack enable && corepack prepare pnpm@latest-8 --activate
 
 COPY --chown=node:node . .
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install && pnpm build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm build
 
 # ------------------------------------------------------------------------------
 # Use the slim image for a lean production container

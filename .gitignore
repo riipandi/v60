@@ -8,11 +8,13 @@ node_modules/
 package-lock.json
 
 # Eleventy
+.cache/
 _site/
 _tmp/
 
 # Misc
 .DS_Store
+.DS_Store?
 .env*
 !.env.example
 

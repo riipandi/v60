@@ -31,6 +31,15 @@
         "indentWidth": 4,
         "lineWidth": 100
     },
+    "css": {
+        "parser": {
+            "allowWrongLineComments": false
+        },
+        "formatter": {
+            "enabled": true,
+            "quoteStyle": "double"
+        }
+    },
     "javascript": {
         "formatter": {
             "indentWidth": 2,
@@ -50,7 +59,7 @@
     },
     "files": {
         "ignoreUnknown": true,
-        "include": ["**/*.js", "**/*.ts", "**/*.tsx", "**/*.css", "**/*.json"],
-        "ignore": [".github", ".husky", ".vscode", "node_modules", "_site"]
+        "include": ["**/*.js", "**/*.cjs", "**/*.mjs", "**/*.css", "**/*.json"],
+        "ignore": [".github", "node_modules", "_site", "_tmp"]
     }
 }

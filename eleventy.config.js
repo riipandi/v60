@@ -6,9 +6,11 @@ const EleventyPluginRss = require("@11ty/eleventy-plugin-rss");
 const EleventyPluginSyntaxhighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
 
-const filters = require("./utils/filters.js");
-const transforms = require("./utils/transforms.js");
-const shortcodes = require("./utils/shortcodes.js");
+const htmlmin = require("html-minifier");
+
+const filters = require("./src/_utils/filters.js");
+const transforms = require("./src/_utils/transforms.js");
+const shortcodes = require("./src/_utils/shortcodes.js");
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
@@ -57,6 +59,28 @@ module.exports = (eleventyConfig) => {
   for (const transformName in transforms) {
     eleventyConfig.addTransform(transformName, transforms[transformName]);
   }
+
+  // Minify HTML output
+  // TODO move to transform.js
+  eleventyConfig.addTransform("htmlmin", function (content) {
+    // Prior to Eleventy 2.0: use this.outputPath instead
+    if (
+      process.env.ELEVENTY_PRODUCTION &&
+      this.page.outputPath &&
+      this.page.outputPath.endsWith(".html")
+    ) {
+      const minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true,
+      });
+      return minified;
+    }
+
+    return content;
+  });
 
   // Shortcodes
   for (const shortcodeName in shortcodes) {
