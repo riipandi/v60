@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.4
+# syntax=docker/dockerfile:1.7
 
 # Args value for build
 ARG NODE_VERSION=20
@@ -7,18 +7,17 @@ ARG NODE_VERSION=20
 # This is base image with `pnpm` package manager
 # -----------------------------------------------------------------------------
 FROM node:${NODE_VERSION}-alpine AS builder
-WORKDIR /srv
-
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+ENV PNPM_HOME="/pnpm" PATH="$PNPM_HOME:$PATH"
 ENV ELEVENTY_PRODUCTION=true
 
+WORKDIR /srv
+
 RUN apk update && apk add --no-cache libc6-compat
-RUN corepack enable && corepack prepare pnpm@latest-8 --activate
+RUN corepack enable && corepack prepare pnpm@latest-9 --activate
 
 COPY --chown=node:node . .
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm build
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile \
+	--ignore-scripts && NODE_ENV=production pnpm build
 
 # ------------------------------------------------------------------------------
 # Use the slim image for a lean production container
@@ -30,12 +29,18 @@ WORKDIR /public
 # Copy required application packages from builder step.
 COPY --from=builder /srv/_site /public
 
-ENV SERVER_PORT 80
-ENV SERVER_HOST 0.0.0.0
-ENV SERVER_ROOT /public
-ENV SERVER_LOG_LEVEL info
-ENV SERVER_LOG_REMOTE_ADDRESS true
-ENV SERVER_CORS_ALLOW_ORIGINS "*"
-ENV SERVER_HEALTH true
+ARG SERVER_PORT=80 \
+	SERVER_HOST=0.0.0.0 \
+	SERVER_LOG_LEVEL=info \
+	SERVER_LOG_REMOTE_ADDRESS=true \
+	SERVER_CORS_ALLOW_ORIGINS="*"
+
+ENV SERVER_PORT=$SERVER_PORT \
+	SERVER_HOST=$SERVER_HOST \
+	SERVER_LOG_LEVEL=$SERVER_LOG_LEVEL \
+	SERVER_LOG_REMOTE_ADDRESS=$SERVER_LOG_REMOTE_ADDRESS \
+	SERVER_CORS_ALLOW_ORIGINS=$SERVER_CORS_ALLOW_ORIGINS
+
+ENV SERVER_ROOT=/public SERVER_HEALTH=true
 
 EXPOSE 80

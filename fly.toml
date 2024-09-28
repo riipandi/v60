@@ -9,7 +9,7 @@ primary_region = "sjc"
 kill_signal = "SIGINT"
 kill_timeout = 5
 swap_size_mb = 256
-console_command = "/bin/bash"
+console_command = "/bin/sh"
 
 [build]
   dockerfile = "Dockerfile"
