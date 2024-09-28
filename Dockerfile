@@ -7,7 +7,7 @@ ARG NODE_VERSION=20
 # This is base image with `pnpm` package manager
 # -----------------------------------------------------------------------------
 FROM node:${NODE_VERSION}-alpine AS builder
-WORKDIR /app
+WORKDIR /srv
 
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
@@ -28,7 +28,7 @@ LABEL org.opencontainers.image.source="https://github.com/riipandi/v60-eleventy"
 WORKDIR /public
 
 # Copy required application packages from builder step.
-COPY --from=builder /app/_site /public
+COPY --from=builder /srv/_site /public
 
 ENV SERVER_PORT 80
 ENV SERVER_HOST 0.0.0.0

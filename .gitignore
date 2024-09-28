@@ -8,7 +8,6 @@ node_modules/
 package-lock.json
 
 # Eleventy
-.cache/
 _site/
 _tmp/
 
@@ -20,3 +19,6 @@ _tmp/
 
 # Local Netlify folder
 .netlify
+
+# Generated files
+public/blogposts.json

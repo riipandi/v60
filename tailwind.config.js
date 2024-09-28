@@ -1,9 +1,9 @@
-const colors = require("tailwindcss/colors");
-const defaultTheme = require("tailwindcss/defaultTheme");
-const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons");
+import { getIconCollections, iconsPlugin } from "@egoist/tailwindcss-icons";
+import colors from "tailwindcss/colors";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: ["./src/**/*.{js,md,njk}"],
   darkMode: "class",
   theme: {
@@ -21,9 +21,7 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/forms")({
-      strategy: "class", // only generate classes
-    }),
+    require("@tailwindcss/forms")({ strategy: "class" }),
     require("@tailwindcss/typography"),
     require("tailwindcss-animate"),
     iconsPlugin({ collections: getIconCollections(["lucide"]) }),
