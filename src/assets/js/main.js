@@ -1,5 +1,4 @@
 import Alpine from "alpinejs";
-import "focus-visible"; // Focus Visible Polyfill
 import htmx from "htmx.org";
 
 // Internal Modules

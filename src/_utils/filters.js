@@ -1,14 +1,16 @@
-const { DateTime } = require("luxon");
+import { DateTime } from "luxon";
 
-module.exports = {
-  dateToFormat: (date, format) =>
-    DateTime.fromJSDate(date, { zone: "utc" }).toFormat(String(format)),
+export default {
+  dateToFormat: (date, format) => {
+    return DateTime.fromJSDate(date, { zone: "utc" }).toFormat(String(format));
+  },
 
-  dateToISO: (date) =>
-    DateTime.fromJSDate(date, { zone: "utc" }).toISO({
+  dateToISO: (date) => {
+    return DateTime.fromJSDate(date, { zone: "utc" }).toISO({
       includeOffset: false,
       suppressMilliseconds: true,
-    }),
+    });
+  },
 
   obfuscate: (str) => {
     const chars = [];
@@ -18,7 +20,7 @@ module.exports = {
     return chars.join("");
   },
 
-  filterTagList(tags) {
+  filterTagList: (tags) => {
     return (tags || []).filter((tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1);
   },
 };

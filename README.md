@@ -6,19 +6,14 @@ A clean and fast Eleventy Starter Project with Vite.
 
 ## Features
 
-- Eleventy 2.0.1
-- New Eleventy 2.0 Dev Server with live reload
-- Vite 5.0.10
-- Vite as Middleware in Eleventy Dev Server (uses [eleventy-plugin-vite](https://github.com/11ty/eleventy-plugin-vite/))
-- Eleventy build output is post-processed by [Vite](https://vitejs.dev) (with Rollup)
+- Eleventy v3.0 + live reload
+- Vite v5 as Middleware in Eleventy Dev Server (uses [eleventy-plugin-vite](https://github.com/11ty/eleventy-plugin-vite/))
+- Eleventy build output is post-processed by [Vite](https://vitejs.dev)
 - CSS post-processing with PostCSS and [Autoprefixer](https://github.com/postcss/autoprefixer)
-- Example implementation of a web font loading strategy ([critical FOFT with preload](https://www.zachleat.com/web/comprehensive-webfonts/#critical-foft-preload))
-- Basic fluid typography based on [Utopia](https://utopia.fyi)
-- Basic dark mode support (using `prefers-color-scheme` and CSS Custom Properties)
-- Polyfill for [focus-visible](https://matthiasott.com/notes/focus-visible-is-here)
+- [Tailwind CSS](https://tailwindcss.com) support + [@egoist/tailwindcss-icons](https://www.npmjs.com/package/@egoist/tailwindcss-icons)
 - RSS feed 🧡
 - XML sitemap
-- Four Hundos Lighthouse score 💯💯💯💯
+- Great Lighthouse score 💯💯💯💯
 
 ## Getting started
 
@@ -30,15 +25,13 @@ After cloning (or downloading) the repository to your local machine, install all
 pnpm install
 ```
 
-## Run dev server
+## Up and running
 
 The project comes with Eleventy’s built-in development server. You can start the server with
 
 ```sh
-pnpm serve
+pnpm dev
 ```
-
-## Build
 
 To trigger a production build, use
 
@@ -46,20 +39,31 @@ To trigger a production build, use
 pnpm build
 ```
 
-## Deploy a fork of this template to Netlify
+## Deploy your own
 
+You'll want to fork this repository and deploy your own Next.js website. Once you have an
+image generator that sparks joy, you can setup [automatic GitHub](https://vercel.com/github)
+deployments so that pushing to master will deploy to production! 🚀
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/riipandi/v60&project-name=v60-eleventy&repo-name=v60-eleventy&env=ELEVENTY_PRODUCTION)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/riipandi/v60)
+
+#### Cloudflare Deployment
+
+You need to add `NODE_VERSION` with value `18.17.1` or `20.9.0` on the environment variables setting.
+Visit [Cloudflare pages docs](https://developers.cloudflare.com/pages/platform/build-configuration/)
+for more information.
+
+Example environment variables for the preview branch:
+
+```env
+PUBLIC_SITE_URL=${CF_PAGES_URL}
+ELEVENTY_PRODUCTION=true
+```
 
 ## CSS
 
 [Autoprefixer](https://github.com/postcss/autoprefixer) adds necessary browser prefixes. The [browserslist](https://github.com/browserslist/browserslist) settings can be adjusted in `package.json`.
-
-## Roadmap
-
-- Add more base styles and a demo page that shows example styles and components
-- Add a toggle button for the dark mode theme
-- More advanced base styles for modern CSS layout
-- Webmention/IndieWeb support
 
 ## Feedback
 
@@ -75,3 +79,14 @@ This starter project would not have been possible without the many great sites a
 - Stephanie Eckles’s [11ty Netlify Jumpstart](https://github.com/5t3ph/11ty-netlify-jumpstart)
 - Miriam Suzanne [miriamsuzanne.com](https://www.miriamsuzanne.com)
 - W3T [web3templates.com](https://web3templates.com/)
+
+## License
+
+This project is open-sourced software licensed under the [MIT license](./LICENSE).
+
+Copyrights in this project are retained by their contributors.
+See the [license file](./LICENSE) for more information.
+
+---
+
+<sub>🤫 Psst! If you like my work you can support me via [GitHub sponsors](https://github.com/sponsors/riipandi).</sub>
