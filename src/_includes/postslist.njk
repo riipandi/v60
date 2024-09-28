@@ -1,49 +1,51 @@
-<ul reversed class="grid gap-16 max-w-4xl mx-auto">
+<ul reversed class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
     {% for post in postslist | reverse %}
-        <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
-            <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                <picture>
-                    <source
-                        srcset=" https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240"
-                        type="image/webp"
-                        sizes="(max-width: 800px) 100vw, 800px"/>
-                    <img
-                        src="https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240"
-                        alt="data structures &amp; algorithms"
-                        sizes="(max-width: 800px) 100vw, 800px"
-                        loading="eager"
-                        decoding="sync"
-                        class="w-full rounded-md object-cover object-center bg-white"
-                        width="800"
-                        height="600"/>
-                </picture>
-                <div>
-                    {% for tag in post.data.tags | filterTagList %}
-                        {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-                        <a href="{{ tagUrl | url }}" class="text-primary-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
-                    {% endfor %}
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 dark:text-gray-200">
-                        {% if post.data.title %}
-                            <a href="{{ post.url | url }}" class="hover:underline">{{ post.data.title }}</a>
-                        {% else %}
-                            <code>{{ post.url }}</code>
-                        {% endif %}
-                    </h2>
-                    <div class="flex gap-2 mt-3">
-                        <span class="text-gray-400">John Doe</span>
-                        <span class="text-gray-400">•
-                        </span>
-                        <time class="text-gray-400" datetime="{{ post.date | dateToFormat('yyyy-MM-dd') }}">
-                            {{ post.date | dateToFormat('dd LLL yyyy') }}
-                        </time>
-                    </div>
-                </div>
-            </div>
-        </li>
+		<div>
+			<picture>
+				<source
+					srcset=" https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240"
+					type="image/webp"
+					sizes="(max-width: 800px) 100vw, 800px"/>
+				<img
+					src="https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&amp;fit=crop&amp;w=430&amp;h=240"
+                    class="object-cover object-center w-full h-64 rounded-lg lg:h-56"
+					alt="data structures &amp; algorithms"
+					sizes="(max-width: 800px) 100vw, 800px"
+					loading="lazy"
+					decoding="sync"
+					width="800"
+					height="600" />
+			</picture>
+			<div class="mt-8">
+				{% for tag in post.data.tags | filterTagList %}
+					{% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+					<a href="{{ tagUrl | url }}" class="text-primary-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
+				{% endfor %}
+				<h1 class="mt-4 text-xl font-semibold text-gray-800 dark:text-white truncate">
+					{% if post.data.title %}
+						<a href="{{ post.url | url }}" class="hover:underline">{{ post.data.title }}</a>
+					{% else %}
+						<code>{{ post.url }}</code>
+					{% endif %}
+				</h1>
+				<p class="mt-2 text-gray-500 dark:text-gray-400">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam est asperiores vel, ab animi
+					recusandae nulla veritatis id tempore sapiente
+				</p>
+				<div class="flex items-center justify-between mt-4">
+					<span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+						{{ post.data.author }}
+                    </span>
+					<time class="text-sm text-gray-500 dark:text-gray-400" datetime="{{ post.date | dateToFormat('yyyy-MM-dd') }}">
+						{{ post.date | dateToFormat('dd LLL yyyy') }}
+					</time>
+				</div>
+			</div>
+		</div>
     {% endfor %}
 </ul>
 
-<div class="mt-14 flex items-center justify-center">
+<div class="mt-14 sm:mt-20 flex items-center justify-center">
     <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
         <button
             disabled=""

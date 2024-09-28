@@ -6,13 +6,22 @@ eleventyNavigation:
   order: 3
 ---
 
-<div class="mt-16 text-center">
-    <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight dark:text-gray-200">Blog Posts</h1>
-    <p class="text-lg mt-4 text-gray-600 dark:text-gray-400">
-        We write about building startups and thoughts going on our mind.
-    </p>
-</div>
-<main class="mt-16">
+<header class="mt-8 sm:mt-10 h-[20rem] bg-gray-100 rounded-lg p-4 sm:p-8">
+	<div class="container mx-auto px-4 flex h-full py-6 items-center">
+		<div class="max-w-2xl">
+			<p class="text-primary-500 uppercase tracking-wider text-base">Blog Posts</p>
+			<h2 class="text-3xl xl:text-4xl font-bold mt-4 text-gray-800 capitalize">
+                Stay hungry, stay foolish.
+			</h2>
+            <p class="text-gray-500 mt-4 text-base leading-7">
+				We write about building startups and thoughts going on our mind.
+			</p>
+		</div>
+	</div>
+</header>
+
+
+<section class="mt-16">
     {% set postslist = collections.blog %}
     {% include "postslist.njk" %}
-</main>
+</section>
