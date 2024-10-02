@@ -1,18 +1,11 @@
 import Alpine from "alpinejs";
-import htmx from "htmx.org";
 
 // Internal Modules
 import "./modules/nav";
 import "./modules/theme";
 
-// Instantiate Alpine.js and htmx
+// Instantiate Alpine.js
 window.Alpine = Alpine;
-window.htmx = htmx;
-
-// @ref: https://github.com/bigskysoftware/htmx/issues/779#issuecomment-1019373147
-document.addEventListener("htmx:configRequest", (evt) => {
-  evt.detail.headers = [];
-});
 
 Alpine.start();
 
