@@ -1,0 +1,86 @@
+---
+layout: base-layout
+title: Contact
+description: Get in touch with us
+---
+
+<div class="mt-16 text-center">
+    <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight dark:text-gray-200">
+        Contact
+    </h1>
+    <p class="text-lg mt-4 text-gray-600 dark:text-gray-400">
+        We are here to help.
+    </p>
+</div>
+
+<div class="grid md:grid-cols-2 gap-10 mx-auto max-w-4xl mt-16">
+    <div>
+        <h2 class="font-medium text-2xl text-gray-800 dark:text-gray-200">Contact Us</h2>
+        <p class="text-lg leading-relaxed text-gray-500 dark:text-gray-400 mt-3">
+            Have something to say? We are here to help. <br/>
+            Fill up the form or send email or call phone.
+        </p>
+        <div class="mt-5">
+            <div class="flex items-center mt-2 space-x-2 text-gray-600 dark:text-gray-400">
+                <i class="icon-[lucide--map-pin] h-4 w-4 text-gray-400"></i>
+                <span>1234 Unknown Town, ID 92037</span>
+            </div>
+            <div class="flex items-center mt-2 space-x-2 text-gray-600 dark:text-gray-400">
+                <i class="icon-[lucide--mail-question] h-4 w-4 text-gray-400"></i>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+            </div>
+            <div class="flex items-center mt-2 space-x-2 text-gray-600 dark:text-gray-400">
+                <i class="icon-[lucide--phone] h-4 w-4 text-gray-400"></i>
+                <a href="tel:+62 (0123) 4587 8990">+62 (0123) 4587 8990</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            id="form"
+            class="needs-validation"
+            novalidate>
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="checkbox" class="hidden" style="display:none" name="botcheck">
+
+            <div class="mb-5">
+                <input
+                    type="text"
+                    placeholder="Full Name"
+                    required
+                    class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-800 dark:border-gray-700">
+            </div>
+
+            <div class="mb-5">
+                <input
+                    type="email"
+                    placeholder="Email Address"
+                    required
+                    class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-500 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-800 dark:border-gray-700">
+            </div>
+
+            <div class="mb-3">
+                <textarea
+                    x-data="{ resize: function() { this.$el.style.height = '0px'; this.$el.style.height = this.$el.scrollHeight + 'px' } }"
+                    x-init="resize()"
+                    @input="resize()"
+                    placeholder="Your Message"
+                    required
+                    class="flex w-full h-auto min-h-[80px] px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-gray-800 dark:border-gray-700"
+                ></textarea>
+            </div>
+
+            <button
+                type="submit"
+                class="rounded text-center transition ring-offset-2 ring-gray-200 w-full px-6 py-3 bg-black text-white hover:bg-gray-900 border-2 border-transparent dark:bg-gray-800">
+                Send Message
+            </button>
+
+            <div id="result" class="mt-3 text-center"></div>
+        </form>
+    </div>
+</div>
+
+<script type="module" src="{{ '/assets/js/modules/contact.js' | url }}"></script>

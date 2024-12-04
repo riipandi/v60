@@ -1,5 +1,5 @@
 ---
-permalink: /public/feed.xml
+permalink: /feed.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
@@ -12,19 +12,18 @@ eleventyExcludeFromCollections: true
         <name>{{ meta.title }}</name>
     </author>
     {% if collections.blog %}
-    <updated>{{ collections.blog | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+        <updated>{{ collections.blog | first | date: '%Y-%m-%dT%H:%M:%SZ' }}</updated>
     {% endif %}
     <id>{{ meta.url }}/</id>
-    {%- for post in collections.blog | reverse -%}
-    {% set absolutePostUrl %}{{ post.url | url | absoluteUrl(meta.url) }}{% endset %}
+    {%- for post in collections.blog reversed -%}
         <entry>
             <title>{{ post.data.title }}</title>
-            <link href="{{ absolutePostUrl }}"/>
-            <updated>{{ post.date | dateToRfc3339 }}</updated>
-            <id>{{ absolutePostUrl }}</id>
-            <content type="html"><![CDATA[
-                {{ post.templateContent | htmlToAbsoluteUrls(absolutePostUrl) | safe }}
-            ]]></content>
+            <link href="{{ meta.url }}{{ post.url }}"/>
+            <updated>{{ post.date | date: '%Y-%m-%dT%H:%M:%SZ' }}</updated>
+            <id>{{ meta.url }}{{ post.url }}</id>
+            <content type="html">
+                <![CDATA[{{ post.templateContent }}]]>
+            </content>
         </entry>
     {%- endfor -%}
 </feed>

@@ -1,0 +1,35 @@
+<div class="inline-flex items-center" x-data="{
+    mode: '',
+    setColorMode: function(m) {
+        if (m === 'dark') {
+            document.documentElement.classList.add('dark')
+            localStorage.setItem('colorMode', 'dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+            localStorage.setItem('colorMode', 'light')
+        }
+    }
+}" x-init="() => {
+    const m = localStorage.getItem('colorMode');
+    if (m !== 'dark' && m !== 'light') return;
+    mode = m;
+}">
+    <i class="i-lucide-sun w-5 h-5 mr-2 text-gray-500 dark:text-gray-300" :class="{'hidden': mode === 'dark'}"></i>
+    <i class="i-lucide-moon w-5 h-5 mr-2 text-gray-500 dark:text-gray-300" :class="{'hidden': mode === 'light'}"></i>
+    <div>
+        <button
+            @click="mode='light'; setColorMode('light');"
+            :class="{'font-semibold': mode === 'light', 'font-thin': mode !== 'light'}"
+            class="px-2 py-1 rounded border-white hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 text-sm"
+        >
+            light
+        </button>
+        <button
+            @click="mode='dark'; setColorMode('dark');"
+            :class="{'bg-gray-700 text-gray-200 border border-solid border-gray-600 font-semibold': mode === 'dark', 'font-thin': mode !== 'dark'}"
+            class="px-2 py-1 rounded hover:bg-white dark:hover:bg-gray-800 text-sm"
+        >
+            dark
+        </button>
+    </div>
+</div>

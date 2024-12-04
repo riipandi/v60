@@ -1,0 +1,66 @@
+<div class="container mx-auto px-4">
+    <ul class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {% for post in postslist reversed %}
+        <div>
+            <picture>
+                <source
+                    srcset="https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&fit=crop&w=430&h=240"
+                    type="image/webp"
+                    sizes="(max-width: 800px) 100vw, 800px"/>
+                <img
+                    src="https://images.unsplash.com/photo-1627163439134-7a8c47e08208?&fit=crop&w=430&h=240"
+                    class="object-cover object-center w-full h-64 rounded-lg lg:h-56"
+                    alt="{{ post.data.title }}"
+                    sizes="(max-width: 800px) 100vw, 800px"
+                    loading="lazy"
+                    decoding="sync"
+                    width="800"
+                    height="600" />
+            </picture>
+            <div class="mt-8">
+                {% assign filteredTags = post.data.tags | filterTagList %}
+                {% for tag in filteredTags %}
+                    {% capture tagUrl %}/tags/{{ tag | slugify }}/{% endcapture %}
+                    <a href="{{ tagUrl | url }}" class="text-blue-400 uppercase tracking-wider text-sm font-medium">{{ tag }}</a>
+                {% endfor %}
+
+                <h2 class="mt-4 text-xl font-semibold text-gray-800 dark:text-white truncate">
+                    {% if post.data.title %}
+                        <a href="{{ post.url | url }}" class="hover:underline">{{ post.data.title }}</a>
+                    {% else %}
+                        <code>{{ post.url }}</code>
+                    {% endif %}
+                </h2>
+
+                <p class="mt-2 text-gray-500 dark:text-gray-400">
+                    {{ post.data.description }}
+                </p>
+
+                <div class="flex items-center justify-between mt-4">
+                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                        {{ post.data.author }}
+                    </span>
+                    <time class="text-sm text-gray-500 dark:text-gray-400" datetime="{{ post.date | date: '%Y-%m-%d' }}">
+                        {{ post.date | date: '%d %b %Y' }}
+                    </time>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+
+    <div class="mt-14 sm:mt-20 flex items-center justify-center">
+        <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
+            <button
+                disabled
+                class="relative inline-flex items-center gap-1 rounded-l-md border border-gray-300 bg-white px-3 py-2 pr-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+                <i class="icon-[lucide--chevron-left] h-4 w-4 text-gray-400"></i>
+                <span>Newer posts</span>
+            </button>
+            <button class="relative inline-flex items-center gap-1 rounded-r-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
+                <span>Older posts</span>
+                <i class="icon-[lucide--chevron-right] h-4 w-4 text-gray-400"></i>
+            </button>
+        </nav>
+    </div>
+</div>
