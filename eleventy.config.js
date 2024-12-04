@@ -24,20 +24,22 @@ const viteOptions = {
   server: {
     mode: "development",
     middlewareMode: true,
+    fs: { allow: [".."] },
   },
-  // @ref: https://tailwindcss.com/docs/v4-beta
+  resolve: {
+    alias: { "/@fs/": "/" },
+  },
   plugins: [tailwindcss()],
   build: {
     mode: "production",
-    sourcemap: "true",
+    sourcemap: true,
     manifest: true,
     rollupOptions: {
       output: {
-        assetFileNames: "assets/css/main.[hash].css",
+        assetFileNames: "assets/css/[name].[hash].css",
         chunkFileNames: "assets/js/[name].[hash].js",
         entryFileNames: "assets/js/[name].[hash].js",
       },
-      plugins: [],
     },
   },
 };
@@ -47,39 +49,34 @@ const viteOptions = {
  * @returns {Object} Eleventy configuration object
  */
 export default function (eleventyConfig) {
+  // Core config
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
   eleventyConfig.addPassthroughCopy("public");
+  eleventyConfig.addPassthroughCopy("src/assets/css");
+  eleventyConfig.addPassthroughCopy("src/assets/js");
 
   // Plugins
   eleventyConfig.addPlugin(EleventyPluginNavigation);
   eleventyConfig.addPlugin(EleventyPluginRss);
   eleventyConfig.addPlugin(EleventyPluginSyntaxhighlight);
-
-  // Vite options (equal to vite.config.js inside project root)
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     tempFolderName: "_tmp",
     viteOptions,
   });
 
-  // Filters
-  Object.keys(filters).forEach((filterName) => {
-    eleventyConfig.addFilter(filterName, filters[filterName]);
-  });
+  // Add utilities
+  Object.keys(filters).forEach((key) => eleventyConfig.addFilter(key, filters[key]));
+  Object.keys(transforms).forEach((key) => eleventyConfig.addTransform(key, transforms[key]));
+  Object.keys(shortcodes).forEach((key) => eleventyConfig.addShortcode(key, shortcodes[key]));
 
-  // Transforms
-  Object.keys(transforms).forEach((transformName) => {
-    eleventyConfig.addTransform(transformName, transforms[transformName]);
-  });
-
-  // Shortcodes
-  Object.keys(shortcodes).forEach((shortcodeName) => {
-    eleventyConfig.addShortcode(shortcodeName, shortcodes[shortcodeName]);
-  });
-
-  // Customize Markdown library and settings:
+  // Markdown config
   eleventyConfig.setLibrary(
     "md",
-    markdownIt({ html: true, breaks: true, linkify: true }).use(markdownItAnchor, {
+    markdownIt({
+      html: true,
+      breaks: true,
+      linkify: true,
+    }).use(markdownItAnchor, {
       permalink: markdownItAnchor.permalink.ariaHidden({
         placement: "after",
         class: "direct-link",
@@ -90,18 +87,36 @@ export default function (eleventyConfig) {
     }),
   );
 
+  // Force clean URLs without trailing slash
+  eleventyConfig.addGlobalData("permalink", () => {
+    return (data) => `${data.page.filePathStem}.html`;
+  });
+
+  // Dev server config
+  eleventyConfig.setServerOptions({
+    domdiff: false,
+    enabled: true,
+    module: "@11ty/eleventy-dev-server",
+    showAllHosts: true,
+    pathPrefix: "",
+    cleanUrls: true,
+    redirects: true,
+    encoding: "utf-8",
+    showVersion: false,
+    notFoundTemplate: "404.html",
+  });
+
   // Layouts
   eleventyConfig.addLayoutAlias("base", "base.liquid");
   eleventyConfig.addLayoutAlias("post", "post.liquid");
-
-  // Copy/pass-through files
-  eleventyConfig.addPassthroughCopy("src/assets/css");
-  eleventyConfig.addPassthroughCopy("src/assets/js");
 
   return {
     templateFormats: ["md", "html", "liquid"],
     htmlTemplateEngine: "liquid",
     passthroughFileCopy: true,
+    pathPrefix: "/",
+    cleanUrls: true,
+    htmlExtensions: true,
     dir: {
       input: "src",
       output: "_site",
