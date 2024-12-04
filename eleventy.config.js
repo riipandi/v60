@@ -7,6 +7,7 @@ import EleventyPluginNavigation from "@11ty/eleventy-navigation";
 import EleventyPluginRss from "@11ty/eleventy-plugin-rss";
 import EleventyPluginSyntaxhighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
+import tailwindcss from "@tailwindcss/vite";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 
@@ -24,6 +25,8 @@ const viteOptions = {
     mode: "development",
     middlewareMode: true,
   },
+  // @ref: https://tailwindcss.com/docs/v4-beta
+  plugins: [tailwindcss()],
   build: {
     mode: "production",
     sourcemap: "true",

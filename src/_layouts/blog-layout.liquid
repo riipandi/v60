@@ -45,7 +45,7 @@ layout: base-layout
             {% for post in posts limit: 2 %}
                 {% if post.url != page.url %}
                 <a href="{{ post.url }}" class="block group">
-                    <h3 class="font-semibold group-hover:text-primary-600">{{ post.data.title }}</h3>
+                    <h3 class="font-semibold group-hover:text-blue-600">{{ post.data.title }}</h3>
                     {% if post.data.description %}
                     <p class="mt-2 text-gray-600 dark:text-gray-400">{{ post.data.description }}</p>
                     {% endif %}
