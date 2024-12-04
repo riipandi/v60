@@ -1,22 +1,29 @@
-import markdownIt from "markdown-it";
-import markdownItAnchor from "markdown-it-anchor";
+/**
+ * @typedef {import('@11ty/eleventy').UserConfig} EleventyConfig
+ * @typedef {import('vite').UserConfig} ViteConfig
+ */
 
 import EleventyPluginNavigation from "@11ty/eleventy-navigation";
 import EleventyPluginRss from "@11ty/eleventy-plugin-rss";
 import EleventyPluginSyntaxhighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import EleventyVitePlugin from "@11ty/eleventy-plugin-vite";
+import markdownIt from "markdown-it";
+import markdownItAnchor from "markdown-it-anchor";
 
-import filters from "./src/_utils/filters.js";
-import shortcodes from "./src/_utils/shortcodes.js";
-import transforms from "./src/_utils/transforms.js";
+import filters from "./utils/filters.js";
+import shortcodes from "./utils/shortcodes.js";
+import transforms from "./utils/transforms.js";
 
-/** @type {import('vite').UserConfig} */
+/** @type {ViteConfig} */
 const viteOptions = {
   publicDir: "public",
   clearScreen: false,
-  server: { middlewareMode: true },
-  appType: "custom",
+  appType: "mpa",
   assetsInclude: ["**/*.xml", "**/*.txt"],
+  server: {
+    mode: "development",
+    middlewareMode: true,
+  },
   build: {
     mode: "production",
     sourcemap: "true",
@@ -32,6 +39,10 @@ const viteOptions = {
   },
 };
 
+/**
+ * @param {EleventyConfig} eleventyConfig
+ * @returns {Object} Eleventy configuration object
+ */
 export default function (eleventyConfig) {
   eleventyConfig.setServerPassthroughCopyBehavior("copy");
   eleventyConfig.addPassthroughCopy("public");
@@ -77,22 +88,22 @@ export default function (eleventyConfig) {
   );
 
   // Layouts
-  eleventyConfig.addLayoutAlias("base", "base.njk");
-  eleventyConfig.addLayoutAlias("post", "post.njk");
+  eleventyConfig.addLayoutAlias("base", "base.liquid");
+  eleventyConfig.addLayoutAlias("post", "post.liquid");
 
   // Copy/pass-through files
   eleventyConfig.addPassthroughCopy("src/assets/css");
   eleventyConfig.addPassthroughCopy("src/assets/js");
 
   return {
-    templateFormats: ["md", "njk", "html", "liquid"],
-    htmlTemplateEngine: "njk",
+    templateFormats: ["md", "html", "liquid"],
+    htmlTemplateEngine: "liquid",
     passthroughFileCopy: true,
     dir: {
       input: "src",
       output: "_site",
-      includes: "_includes",
-      layouts: "layouts",
+      includes: "_partials",
+      layouts: "_layouts",
       data: "_data",
     },
   };

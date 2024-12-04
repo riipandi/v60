@@ -1,0 +1,38 @@
+{%- assign pageUrl = page.url | url -%}
+
+<!-- General -->
+<link rel="canonical" href="{{ meta.url }}{{ pageUrl }}">
+<meta name="generator" content="{{ eleventy.generator }}">
+<meta name="description" content="{{ description | default: meta.description }}">
+<meta name="author" content="{{ meta.author }}">
+<meta name="theme-color" content="#7134ff"/>
+
+<!-- OpenGraph -->
+<meta property="og:title" content="{{ title | default: meta.title }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ meta.url }}{{ pageUrl }}">
+<meta property="og:site_name" content="{{ meta.title }}">
+<meta property="og:description" content="{{ description | default: meta.description }}">
+{%- if env == 'production' -%}
+	<meta property="og:image" content="{{ meta.url }}/assets/images/social-preview.jpg">
+{%- else -%}
+	<meta property="og:image" content="{{ "/assets/images/social-preview.jpg" | url }}">
+{%- endif -%}
+<meta property="og:image:alt" content="{{ description | default: meta.description }}">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title | default: meta.title }}">
+<meta name="twitter:description" content="{{ description | default: meta.description }}">
+<meta name="twitter:image" content="{{ meta.url }}/assets/images/social-preview.jpg">
+<meta name="twitter:image:alt" content="{{ description | default: meta.description }}">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon/apple-touch-icon.png' | url }}">
+<link rel="icon" type="image/png" href="{{ '/assets/images/favicon/favicon-32x32.png' | url }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ '/assets/images/favicon/favicon-16x16.png' | url }}" sizes="16x16">
+<link rel="shortcut icon" href="{{ '/assets/images/favicon/favicon.ico' | url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | url }}">
+
+<!-- RSS Feed -->
+<link type="application/atom+xml" rel="alternate" href="{{ '/feed.xml' | url }}" title="{{ meta.title }}">

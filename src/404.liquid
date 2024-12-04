@@ -1,0 +1,25 @@
+---
+layout: base-layout
+permalink: 404.html
+eleventyExcludeFromCollections: true
+---
+
+<div class="mx-auto flex h-full w-full flex-col py-32">
+    <header class="mb-auto w-full" aria-hidden="true"></header>
+    <div class="px-4 py-10 text-center sm:px-6 lg:px-8">
+        <h1 class="block text-7xl font-bold text-gray-800 dark:text-white sm:text-8xl">404</h1>
+        <div class="mt-8 text-lg text-gray-600 dark:text-gray-400 sm:mt-10">
+            <p class="leading-8">Oops, something went wrong.</p>
+            <p class="leading-8">Sorry, we couldn't find your page.</p>
+        </div>
+        <div class="mt-8 lg:mt-14 flex flex-col items-center justify-center">
+            <a
+                href="{{ '/' | url }}"
+                class="inline-flex w-full items-center justify-center gap-2 rounded-md border border-transparent px-3 py-2 text-sm font-semibold text-blue-500 ring-offset-white transition-all hover:text-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-2 dark:ring-offset-slate-900 sm:w-auto"
+            >
+                <i class="icon-[lucide--chevron-left] h-2.5 w-2.5"></i>
+                Back to main page
+            </a>
+        </div>
+    </div>
+</div>

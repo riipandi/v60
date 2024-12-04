@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ meta.lang | default: 'en' }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	{%- if env == 'production' -%}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    {%- endif -%}
+
+	{% include '_partials/meta' %}
+
+    <title>
+        {%- if title -%}
+            {{ title }} | {{ meta.title }}
+        {%- else -%}
+            {{ meta.title }} - {{ meta.description }}
+        {%- endif -%}
+    </title>
+
+	<link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
+</head>
+<body class="antialiased bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    {{ content }}
+    <script type="module" src="{{ '/assets/js/main.js' | url }}"></script>
+</body>
+</html>

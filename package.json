@@ -16,7 +16,7 @@
     "scripts": {
         "build": "pnpm run cleanup && eleventy",
         "dev": "eleventy --serve --port 3000 --incremental",
-        "start": "eleventy --serve",
+        "start": "eleventy --serve --port 3000",
         "watch": "eleventy --watch",
         "bench": "DEBUG=Eleventy:Benchmark* eleventy",
         "preview": "serve -l 3000 _site",
@@ -31,18 +31,18 @@
         "lint": "biome lint . --write"
     },
     "dependencies": {
-        "alpinejs": "^3.14.1"
+        "alpinejs": "^3.14.6"
     },
     "devDependencies": {
         "@11ty/eleventy-img": "^5.0.0",
         "@11ty/eleventy-navigation": "^0.3.5",
         "@11ty/eleventy-plugin-rss": "^2.0.2",
         "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
-        "@11ty/eleventy-plugin-vite": "^5.0.0-alpha.1",
+        "@11ty/eleventy-plugin-vite": "^5.0.2",
         "@11ty/eleventy": "^3.0.0",
-        "@biomejs/biome": "1.9.3",
+        "@biomejs/biome": "1.9.4",
         "@egoist/tailwindcss-icons": "^1.8.1",
-        "@iconify-json/lucide": "^1.2.6",
+        "@iconify-json/lucide": "^1.2.17",
         "@tailwindcss/aspect-ratio": "^0.4.2",
         "@tailwindcss/forms": "^0.5.9",
         "@tailwindcss/typography": "^0.5.15",
@@ -51,13 +51,13 @@
         "luxon": "^3.5.0",
         "markdown-it-anchor": "^9.2.0",
         "markdown-it": "^14.1.0",
-        "npm-check-updates": "^17.1.3",
-        "postcss": "^8.4.47",
-        "serve": "^14.2.3",
+        "npm-check-updates": "^17.1.11",
+        "postcss": "^8.4.49",
+        "serve": "^14.2.4",
         "tailwindcss-animate": "^1.0.7",
-        "tailwindcss": "^3.4.13",
-        "vite": "^5.4.1"
+        "tailwindcss": "^3.4.16",
+        "vite": "^6.0.2"
     },
     "browserslist": ["> 0.5%", "not IE 11"],
-    "packageManager": "pnpm@9.11.0"
+    "packageManager": "pnpm@9.14.4"
 }

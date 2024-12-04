@@ -4,7 +4,7 @@ import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,md,njk}"],
+  content: ["./src/**/*.{js,md,liquid}"],
   darkMode: "class",
   theme: {
     extend: {
@@ -13,7 +13,7 @@ export default {
         mono: [...defaultTheme.fontFamily.mono],
       },
       colors: {
-        black: "#1B1C1E",
+        black: "#030303",
         gray: colors.neutral,
         primary: colors.blue,
       },
